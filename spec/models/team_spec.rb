@@ -1,9 +1,9 @@
 # == Schema Information
 #
-# Table name: news
+# Table name: teams
 #
 #  id          :integer          not null, primary key
-#  title       :string
+#  name        :string
 #  description :text
 #  image       :string
 #  created_at  :datetime         not null
@@ -12,18 +12,18 @@
 
 require 'rails_helper'
 
-RSpec.describe News, type: :model do
-  context "Test for my news" do
+RSpec.describe Team, type: :model do
+  context "Test for my teams model" do
 
-    it "is not valid without a title" do
-      news = build :news, title: nil
-      expect(news).to_not be_valid
+    it "is not valid without a name" do
+      team = build :team, name: nil
+      expect(team).to_not be_valid
     end
   
     it "is not valid without a description" do
-      news = build :news, description: nil
-      expect(news).to_not be_valid
+      team = build :team, description: nil
+      expect(team).to_not be_valid
     end
-    
+
   end
 end

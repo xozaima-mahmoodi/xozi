@@ -12,5 +12,5 @@
 #
 
 class User < ApplicationRecord
-    enum role: %i(admin Expert)
+    enum role: %i(admin expert)
 end
