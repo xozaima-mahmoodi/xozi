@@ -15,6 +15,7 @@ gem 'devise'
 gem 'pundit'
 gem 'carrierwave', '~> 2.0'
 gem 'jsonapi-rails'
+gem 'editorconfig'
 
 
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -24,6 +25,7 @@ gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
+  gem 'rubocop', require: false
 end
 
 group :development do
