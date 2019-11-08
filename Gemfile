@@ -26,6 +26,7 @@ gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'rubocop', require: false
+  gem 'ffaker'
 end
 
 group :development do
