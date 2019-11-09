@@ -13,9 +13,9 @@
 
 FactoryGirl.define do
   factory :user do
-    first_name "MyString"
-    last_name "MyString"
-    role 1
-    email "MyString"
+    first_name { FFaker::Name.first_name }
+    last_name { FFaker::Name.last_name }
+    role { %i(admin expert).sample }
+    email { FFaker::Internet.email }
   end
 end
