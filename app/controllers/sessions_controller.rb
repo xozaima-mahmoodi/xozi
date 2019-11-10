@@ -4,6 +4,16 @@ class SessionsController < Devise::SessionsController
     sign_in_and_redirect(resource_name, resource)
   end
 
+  def destroy
+    signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
+
+    if signed_out
+      render json: { logout: true }
+    else
+      render json: { logout: false }
+    end
+  end
+
   def sign_in_and_redirect(resource_or_scope, resource = nil)
     scope = Devise::Mapping.find_scope!(resource_or_scope)
     resource ||= resource_or_scope
@@ -17,5 +27,9 @@ class SessionsController < Devise::SessionsController
       success: false,
       errors: ['Login failed.'],
     }
+  end
+
+  def respond_to_on_destroy
+    render json: { logout: true } 
   end
 end
