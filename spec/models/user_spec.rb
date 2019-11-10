@@ -52,12 +52,13 @@ RSpec.describe User, type: :model do
 
     # end
 
-    # context '.email' do
-    #   it 'should return email' do
-    #     user = build :user, email: 'xozi.xendil@gmail.com'
-    #     expect(user.email).to eql('xozi.xendil@gmail.com')
-    #   end
-    # end
+    context '.email' do
+      it 'should return email' do
+        user = build :user, email: 'xozi.xendil@gmail.com'
+        expect(user.email).to eql('xozi.xendil@gmail.com')
+      end
+    end
+    
   end
 
   describe 'Validation' do
