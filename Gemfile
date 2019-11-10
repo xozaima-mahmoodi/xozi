@@ -27,6 +27,10 @@ gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'database_cleaner'
   gem 'rubocop', require: false
   gem 'ffaker'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
+  gem 'pry-clipboard'
 end
 
 group :development do
