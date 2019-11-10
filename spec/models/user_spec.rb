@@ -2,13 +2,22 @@
 #
 # Table name: users
 #
-#  id         :integer          not null, primary key
-#  first_name :string
-#  last_name  :string
-#  role       :integer
-#  email      :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id                     :integer          not null, primary key
+#  first_name             :string
+#  last_name              :string
+#  role                   :integer
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  email                  :string           default(""), not null
+#  encrypted_password     :string           default(""), not null
+#  reset_password_token   :string
+#  reset_password_sent_at :datetime
+#  remember_created_at    :datetime
+#
+# Indexes
+#
+#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 
 require 'rails_helper'
@@ -43,12 +52,12 @@ RSpec.describe User, type: :model do
 
     # end
 
-    context '.email' do
-      it 'should return email' do
-        user = build :user, email: 'xozi.xendil@gmail.com'
-        expect(user.email).to eql('xozi.xendil@gmail.com')
-      end
-    end
+    # context '.email' do
+    #   it 'should return email' do
+    #     user = build :user, email: 'xozi.xendil@gmail.com'
+    #     expect(user.email).to eql('xozi.xendil@gmail.com')
+    #   end
+    # end
   end
 
   describe 'Validation' do
