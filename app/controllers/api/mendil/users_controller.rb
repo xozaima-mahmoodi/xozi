@@ -2,7 +2,8 @@ module Api
   module Mendil
     class UsersController < ApplicationController
       def index
-        render json: { data: true }
+        users = User.all
+        render jsonapi: users
       end
 
       def show
