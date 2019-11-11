@@ -5,8 +5,9 @@ RSpec.describe 'Users Controller', type: :request do
       expect(json['message']).to eql('You are not loged in! Please try agin')
     end
 
-    it 'should return success data' do
+    it 'should return success data when login as admin' do
       user = create(:user,
+        role: 'admin',
         first_name: 'xendil',
         last_name: 'xendili',
         email: 'xendil@gmail.com',
@@ -19,6 +20,21 @@ RSpec.describe 'Users Controller', type: :request do
       expect(json['data'][0]['attributes']['first_name']).to eql('xendil')
       expect(json['data'][0]['attributes']['last_name']).to eql('xendili')
       expect(json['data'][0]['attributes']['email']).to eql('xendil@gmail.com')
+    end
+
+    it 'should not return success data when login as expert' do
+      user = create(:user,
+        role: 'expert'
+      )
+      sign_in(user)
+      expect { get '/api/mendil/users' }.to raise_error
+    
+      # expect(json['data'].size).to eql(1)
+      # expect(json['data'][0]['id'].to_i).to eql(user.id)
+      # expect(json['data'][0]['attributes']['first_name']).to eql('xendil')
+      # expect(json['data'][0]['attributes']['last_name']).to eql('xendili')
+      # expect(json['data'][0]['attributes']['email']).to eql('xendil@gmail.com')
+
     end
   end
 end

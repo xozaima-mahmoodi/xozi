@@ -2,6 +2,7 @@ RSpec.describe 'Sessions Controller', type: :request do
   context '.create' do
     it 'should return failed response' do
       post '/users/sign_in', params: {}
+      puts json
 
       expect(json['success']).to eql(false)
       expect(json['errors']).to eql(['Login failed.'])
