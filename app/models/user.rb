@@ -21,6 +21,11 @@
 #
 
 class User < ApplicationRecord
+
+  has_many :news
+  has_many :players
+  has_many :teams
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   

@@ -11,6 +11,10 @@
 #
 
 class Team < ApplicationRecord
+
+    has_many :news
+    belongs_to :user
+    
     validates :name, presence: true
     validates :description, presence: true
 end

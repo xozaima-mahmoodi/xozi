@@ -13,6 +13,10 @@
 #
 
 class Player < ApplicationRecord
+
+    has_many :news
+    belongs_to :user
+    
     validates :name, presence: true
     validates :lastname, presence: true
     validates :post, presence: true

@@ -24,6 +24,5 @@ RSpec.describe News, type: :model do
       news = build :news, description: nil
       expect(news).to_not be_valid
     end
-    
   end
 end
