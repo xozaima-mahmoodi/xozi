@@ -8,12 +8,13 @@
 #  image       :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  user_id     :integer
 #
 
 require 'rails_helper'
 
 RSpec.describe News, type: :model do
-  context "Test for my news" do
+  context "Test valid" do
 
     it "is not valid without a title" do
       news = build :news, title: nil
@@ -24,5 +25,10 @@ RSpec.describe News, type: :model do
       news = build :news, description: nil
       expect(news).to_not be_valid
     end
+
+  end
+
+  describe "relation" do
+    it { should belong_to(:user) }
   end
 end
