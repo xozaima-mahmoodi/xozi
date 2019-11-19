@@ -80,6 +80,18 @@ RSpec.describe User, type: :model do
         expect(user.errors.messages[:last_name]).to eql(["can't be blank"])
       end
     end
-    
   end
+
+  describe "relation" do
+    it { should have_many(:news) }
+  end
+
+  describe "relation" do
+    it { should have_many(:player) }
+  end
+
+  describe "relation" do
+    it { should have_many(:team) }
+  end
+
 end
