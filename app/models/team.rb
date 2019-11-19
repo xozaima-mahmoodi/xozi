@@ -8,11 +8,14 @@
 #  image       :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  user_id     :integer
+#  player_id   :integer
 #
 
 class Team < ApplicationRecord
 
     has_many :news
+    has_many :player
     belongs_to :user
     
     validates :name, presence: true
