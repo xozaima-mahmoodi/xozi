@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :mendil do
       resources :users
+      resources :news
     end
   end
 end
