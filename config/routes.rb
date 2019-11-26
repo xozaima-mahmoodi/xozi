@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     namespace :mendil do
       resources :users
       resources :news
+      resources :player
+      resources :team
     end
   end
 end
