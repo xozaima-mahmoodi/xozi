@@ -22,5 +22,5 @@ class Player < ApplicationRecord
     
     validates :name, presence: true
     validates :lastname, presence: true
-    validates :post, presence: true
+    validates :player_post, presence: true
 end
