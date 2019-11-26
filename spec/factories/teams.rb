@@ -14,8 +14,11 @@
 
 FactoryGirl.define do
   factory :team do
-    name "MyString"
-    description "MyText"
-    image "MyString"
+    name { FFaker::Name.name }
+    description { FFaker::Name.phrase }
+    image { FFaker::Image.image }
+
+    association :user, factory: :user
+    association :player, factory: :player
   end
 end

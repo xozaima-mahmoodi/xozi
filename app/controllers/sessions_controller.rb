@@ -1,4 +1,7 @@
 class SessionsController < Devise::SessionsController
+
+  skip_before_action :authenticate_user!
+  
   def create
     resource = warden.authenticate!(scope: resource_name, recall: 'sessions#failure')
     sign_in_and_redirect(resource_name, resource)

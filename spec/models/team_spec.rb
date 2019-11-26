@@ -37,7 +37,7 @@ RSpec.describe Team, type: :model do
   end
 
   describe "relation" do
-    it { should have_many(:player) }
+    it { should have_many(:players) }
   end
 
 end

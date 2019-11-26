@@ -16,10 +16,13 @@
 
 FactoryGirl.define do
   factory :player do
-    name "MyString"
-    lastname "MyString"
-    post "MyString"
-    age 1
-    image "MyString"
+    name { FFaker::Name.name }
+    lastname { FFaker::Name.last_name }
+    post { FFaker::Name.post }
+    age { Faker::Number.age(digits: 3) }
+    image { FFaker::Image.image }
+
+    association :team, factory: :team
+    association :user, factory: :user
   end
 end
