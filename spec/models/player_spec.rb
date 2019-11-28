@@ -29,8 +29,8 @@ RSpec.describe Player, type: :model do
       expect(player).to_not be_valid
     end
 
-    it "is not valid without a post" do
-      player = build :player, post: nil
+    it "is not valid without a player_post" do
+      player = build :player, player_post: nil
       expect(player).to_not be_valid
     end
   end
