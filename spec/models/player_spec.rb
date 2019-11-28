@@ -3,8 +3,8 @@
 # Table name: players
 #
 #  id          :integer          not null, primary key
-#  name        :string
-#  lastname    :string
+#  first_name  :string
+#  last_name   :string
 #  player_post :string
 #  age         :integer
 #  image       :string
@@ -19,13 +19,13 @@ require 'rails_helper'
 RSpec.describe Player, type: :model do
   context "Validation test" do
 
-    it "is not valid without a name" do
-      player = build :player, name: nil
+    it "is not valid without a first_name" do
+      player = build :player, first_name: nil
       expect(player).to_not be_valid
     end
   
-    it "is not valid without a lastname" do
-      player = build :player, lastname: nil
+    it "is not valid without a last_name" do
+      player = build :player, last_name: nil
       expect(player).to_not be_valid
     end
 

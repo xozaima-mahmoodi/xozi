@@ -3,8 +3,8 @@
 # Table name: players
 #
 #  id          :integer          not null, primary key
-#  name        :string
-#  lastname    :string
+#  first_name  :string
+#  last_name   :string
 #  player_post :string
 #  age         :integer
 #  image       :string
@@ -20,7 +20,7 @@ class Player < ApplicationRecord
     belongs_to :user
     belongs_to :team
     
-    validates :name, presence: true
-    validates :lastname, presence: true
+    validates :first_name, presence: true
+    validates :last_name, presence: true
     validates :player_post, presence: true
 end

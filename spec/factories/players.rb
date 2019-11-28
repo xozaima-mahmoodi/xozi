@@ -3,8 +3,8 @@
 # Table name: players
 #
 #  id          :integer          not null, primary key
-#  name        :string
-#  lastname    :string
+#  first_name  :string
+#  last_name   :string
 #  player_post :string
 #  age         :integer
 #  image       :string
@@ -16,10 +16,10 @@
 
 FactoryGirl.define do
   factory :player do
-    name { FFaker::Name.name }
-    lastname { FFaker::Name.last_name }
+    first_name { FFaker::Name.name }
+    last_name { FFaker::Name.last_name }
     player_post { FFaker::Name.name }
-    age { Faker::Number.age(digits: 3) }
+    age { Faker::Number.age(digits: 2) }
     image { FFaker::Avatar.image }
 
     association :team, factory: :team
