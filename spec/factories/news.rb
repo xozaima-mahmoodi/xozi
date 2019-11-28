@@ -15,9 +15,9 @@
 
 FactoryGirl.define do
   factory :news do
-    title { FFaker::Name.prefix }
-    description { FFaker::Name.phrase }
-    image { FFaker::Image.image }
+    title { FFaker::Book.title }
+    description { FFaker::Book.description }
+    image { FFaker::Avatar.image }
 
     association :player, factory: :player
     association :team, factory: :team
