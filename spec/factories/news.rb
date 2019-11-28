@@ -19,8 +19,8 @@ FactoryGirl.define do
     description { FFaker::Book.description }
     image { FFaker::Avatar.image }
 
-    association :player, factory: :player
-    association :team, factory: :team
-    association :user, factory: :user
+    # association :player, factory: :player
+    # association :team, factory: :team
+    # association :user, factory: :user
   end
 end
