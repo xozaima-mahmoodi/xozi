@@ -16,7 +16,7 @@
 
 FactoryGirl.define do
   factory :player do
-    first_name { FFaker::Name.name }
+    first_name { FFaker::Name.first_name }
     last_name { FFaker::Name.last_name }
     player_post { FFaker::Name.name }
     age { Faker::Number.age(digits: 2) }
