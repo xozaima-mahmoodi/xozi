@@ -1,5 +1,3 @@
-require 'rails_helper'
-
-RSpec.describe PlayerController, type: :controller do
+RSpec.describe 'Player Controller', type: :request do
 
 end
