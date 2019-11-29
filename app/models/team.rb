@@ -14,10 +14,10 @@
 
 class Team < ApplicationRecord
 
-    has_many :news
-    has_many :players
-    belongs_to :user
-    
-    validates :name, presence: true
-    validates :description, presence: true
+  has_many :news
+  has_many :players
+  belongs_to :user
+  
+  validates :name, presence: true
+  validates :description, presence: true
 end
