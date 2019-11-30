@@ -49,5 +49,26 @@ RSpec.describe 'News Controller', type: :request do
     end
   end
 
+  context 'PUT news#update' do
+    it 'should change news attributes' do
+      user = create :user, email:'test@test.com', password: '123456Aa'
+      team = create :team, user_id: user.id
+      player = create :player, user_id: user.id, team_id: team.id
+      news = create :news, title:'title', description:'dddddd', user_id: user.id, team_id: team.id, player_id: player.id
+        valid_attributes = {
+          id: news.id,
+          news: {
+           title: 'title',
+           description: 'dddddd'
+          }
+        }
+      sign_in( user )
+      put "/api/mendil/news/#{news.id}", params: valid_attributes
+      news.reload
+      expect(news.title).to eq('title')
+      expect(news.description).to eq('dddddd')
+    end
+  end
+
 
 end
