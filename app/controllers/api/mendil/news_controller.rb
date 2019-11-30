@@ -26,7 +26,7 @@ module Api
         if @news.update(news_params)
           render jsonapi: @news
         else
-          render jsonapi: @news.errors 
+          render json: @news.errors 
         end  
       end
 
