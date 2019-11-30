@@ -15,11 +15,10 @@ module Api
 
       def create
         news = News.new(news_params)
-
         if news.save
           render jsonapi: news
         else
-          render jsonapi: news.errors
+          render json: news.errors
         end  
       end
 
@@ -46,7 +45,7 @@ module Api
         end
 
         def news_params
-          params.require(:news).permit(:name)
+          params.require(:news).permit(:title, :description, :user_id, :team_id, :player_id)
         end
     end
   end      
