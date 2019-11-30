@@ -34,7 +34,6 @@ module Api
         @news.destroy
 
         flash[:notice] = "News Removed"
-        redirect_to news_path
       end
 
 

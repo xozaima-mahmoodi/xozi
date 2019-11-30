@@ -70,5 +70,20 @@ RSpec.describe 'News Controller', type: :request do
     end
   end
 
+  context 'GET news#destroy' do
+    it 'should destroy a news' do
+     user = create :user, email:'test@test.com', password: '123456Aa'
+     team = create :team, user_id: user.id
+     player = create :player, user_id: user.id, team_id: team.id
+     news = create :news, title:'title', description:'eeeeee', user_id: user.id, team_id: team.id, player_id: player.id
+     count = News.count
+
+     sign_in( user )
+
+     delete "/api/mendil/news/#{news.id}", params: { id: news.id }
+     expect(News.count).to eq( count - 1 )
+    end
+  end
+
 
 end
