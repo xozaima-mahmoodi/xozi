@@ -19,7 +19,7 @@ module Api
         if player.save
           render jsonapi: player
         else
-          render jsonapi: player.errors
+          render json: player.errors
         end  
       end
 
@@ -46,7 +46,7 @@ module Api
         end
 
         def player_params
-          params.require(:player).permit(:name)
+          params.require(:player).permit(:first_name, :last_name, :player_post, :user_id, :team_id, :news_id)
         end
     end
   end      
