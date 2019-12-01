@@ -30,6 +30,7 @@ RSpec.describe 'Player Controller', type: :request do
     user = create :user, email: 'test@test.com', password: '123456Aa!'
     team = create :team, user_id: user.id
     player = create :player, user_id: user.id, team_id: team.id
+
       valid_player_params = {
         player: {
           first_name:'xozi',
@@ -37,7 +38,7 @@ RSpec.describe 'Player Controller', type: :request do
           player_post:'forward',
           user_id: user.id,
           team_id: team.id,
-          player_id: player.id,
+          player_id: player.id
         }
       }
 
@@ -46,5 +47,30 @@ RSpec.describe 'Player Controller', type: :request do
     end
   end
 
+  context 'PUT player#update' do
+    it 'should change player attributes' do
+      user = create :user, email:'test@test.com', password: '123456Aa'
+      team = create :team, user_id: user.id
+      player = create :player, user_id: user.id, team_id: team.id
 
+      valid_player_params = {
+        player: {
+          first_name:'xozi',
+          last_name:'mah',
+          player_post:'forward',
+          user_id: user.id,
+          team_id: team.id,
+          player_id: player.id
+        }
+      }
+
+      sign_in( user )
+      put "/api/mendil/player/#{player.id}", params: valid_player_params
+      player.reload
+      expect(player.first_name).to eq('xozi')
+      expect(player.last_name).to eq('mah')
+      expect(player.player_post).to eq('forward')
+    end
+  end
+  
 end
