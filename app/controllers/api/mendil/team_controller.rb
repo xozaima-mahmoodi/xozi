@@ -19,7 +19,7 @@ module Api
         if team.save
           render jsonapi: team
         else
-          render jsonapi: team.errors
+          render json: team.errors
         end  
       end
 
@@ -46,7 +46,7 @@ module Api
         end
 
         def team_params
-          params.require(:team).permit(:name)
+          params.require(:team).permit(:name, :description, :user_id)
         end
     end
   end      
