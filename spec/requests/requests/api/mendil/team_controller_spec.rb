@@ -47,7 +47,7 @@ RSpec.describe 'Team Controller', type: :request do
     it 'should change team attributes' do
       user = create :user, email:'test@test.com', password: '123456Aa'
       team = create :team, user_id: user.id
-      
+
       valid_team_params = {
         team: {
           name:'perspolis',
@@ -65,4 +65,19 @@ RSpec.describe 'Team Controller', type: :request do
       expect(team.description).to eq('666666')
     end
   end
+
+  context 'GET team#destroy' do
+    it 'should destroy a team' do
+     user = create :user, email:'test@test.com', password: '123456Aa'
+     team = create :team, user_id: user.id
+     
+     count = Team.count
+
+     sign_in( user )
+
+     delete "/api/mendil/team/#{team.id}", params: { id: team.id }
+     expect(Team.count).to eq( count - 1 )
+    end
+  end
+
 end

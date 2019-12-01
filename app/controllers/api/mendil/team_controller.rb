@@ -35,7 +35,6 @@ module Api
         @team.destroy
 
         flash[:notice] = "Team Removed"
-        redirect_to team_path
       end
 
 
