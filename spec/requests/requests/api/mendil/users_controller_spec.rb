@@ -48,4 +48,24 @@ RSpec.describe 'Users Controller', type: :request do
       expect(response).to have_http_status(200)
     end
   end
+
+  describe 'POST user#create' do
+    it 'create a new user' do
+      user = create :user, email: 'test@test.com', password: '123456Aa!'
+
+      valid_user_params = {
+        user: {
+          first_name: 'xendil',
+          last_name: 'xendili',
+          email: 'xendil@gmail.com',
+          password: '123456Aa!',
+          role: nil
+        }
+      }
+
+      sign_in( user )
+ 
+      expect { post '/api/mendil/users', params: valid_user_params }.to change(User, :count).by(1)
+    end
+  end
 end

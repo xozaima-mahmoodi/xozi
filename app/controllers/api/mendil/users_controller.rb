@@ -12,9 +12,8 @@ module Api
       end
 
       def create
-        authorize(User)
+        authorize (User)
         user = User.new(user_params)
-        user.customer_id = current_user.id
 
         if user.save
           render jsonapi: user, status: :created
@@ -47,7 +46,7 @@ module Api
         
         def user_params
           params.require(:user).permit(
-            :first_name, :last_name, :email, :role
+            :first_name, :last_name, :email, :password, :role
           )
         end
     end
