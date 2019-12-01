@@ -37,4 +37,15 @@ RSpec.describe 'Users Controller', type: :request do
 
     end
   end
+
+  context 'GET user#show' do
+    it 'should return 200 response' do
+      user = create :user, email: 'test@test.com', password: '123456Aa!'
+
+      sign_in( user )
+      
+      get '/api/mendil/users'
+      expect(response).to have_http_status(200)
+    end
+  end
 end
