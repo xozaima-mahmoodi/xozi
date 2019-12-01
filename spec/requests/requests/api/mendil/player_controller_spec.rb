@@ -72,5 +72,19 @@ RSpec.describe 'Player Controller', type: :request do
       expect(player.player_post).to eq('forward')
     end
   end
-  
+
+  context 'GET player#destroy' do
+    it 'should destroy a player' do
+     user = create :user, email:'test@test.com', password: '123456Aa'
+     team = create :team, user_id: user.id
+     player = create :player, user_id: user.id, team_id: team.id
+     
+     count = Player.count
+
+     sign_in( user )
+
+     delete "/api/mendil/player/#{player.id}", params: { id: player.id }
+     expect(Player.count).to eq( count - 1 )
+    end
+  end
 end

@@ -35,7 +35,6 @@ module Api
         @player.destroy
 
         flash[:notice] = "Player Removed"
-        redirect_to player_path
       end
 
 
