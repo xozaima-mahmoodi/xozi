@@ -33,12 +33,36 @@ RSpec.describe 'Team Controller', type: :request do
           name:'perspolis',
           description:'666666',
           user_id: user.id,
-          team_id: team.id,
+          team_id: team.id
         }
       }
 
       sign_in( user )
+
       expect{ post "/api/mendil/team", params:valid_team_params }.to change(Team, :count).by(1)
+    end
+  end
+
+  context 'PUT team#update' do
+    it 'should change team attributes' do
+      user = create :user, email:'test@test.com', password: '123456Aa'
+      team = create :team, user_id: user.id
+      
+      valid_team_params = {
+        team: {
+          name:'perspolis',
+          description:'666666',
+          user_id: user.id,
+          team_id: team.id
+        }
+      }
+
+      sign_in( user )
+
+      put "/api/mendil/team/#{team.id}", params: valid_team_params
+      team.reload
+      expect(team.name).to eq('perspolis')
+      expect(team.description).to eq('666666')
     end
   end
 end

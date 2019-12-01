@@ -27,7 +27,7 @@ module Api
         if @team.update(team_params)
           render jsonapi: @team
         else
-          render jsonapi: @team.errors 
+          render json: @team.errors 
         end  
       end
 
