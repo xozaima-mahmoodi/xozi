@@ -28,13 +28,6 @@ RSpec.describe 'Users Controller', type: :request do
       )
       sign_in(user)
       expect { get '/api/mendil/users' }.to raise_error
-    
-      # expect(json['data'].size).to eql(1)
-      # expect(json['data'][0]['id'].to_i).to eql(user.id)
-      # expect(json['data'][0]['attributes']['first_name']).to eql('xendil')
-      # expect(json['data'][0]['attributes']['last_name']).to eql('xendili')
-      # expect(json['data'][0]['attributes']['email']).to eql('xendil@gmail.com')
-
     end
   end
 
@@ -66,6 +59,27 @@ RSpec.describe 'Users Controller', type: :request do
       sign_in( user )
  
       expect { post '/api/mendil/users', params: valid_user_params }.to change(User, :count).by(1)
+    end
+  end
+
+  context 'PUT user#update' do
+    it 'should change user attributes' do
+      user = create :user, email:'test@test.com', password: '123456Aa'
+
+      valid_user_params = {
+        user: {
+          first_name:'xozi',
+          last_name:'mah',
+          user_id: user.id
+        }
+      }
+
+      sign_in( user )
+
+      put "/api/mendil/users/#{user.id}", params: valid_user_params
+      user.reload
+      expect(user.first_name).to eq('xozi')
+      expect(user.last_name).to eq('mah')
     end
   end
 end
