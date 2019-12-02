@@ -82,4 +82,17 @@ RSpec.describe 'Users Controller', type: :request do
       expect(user.last_name).to eq('mah')
     end
   end
+
+  context 'GET user#destroy' do
+    it 'should destroy a user' do
+     user = create :user, email:'test@test.com', password: '123456Aa'
+     
+     count = User.count
+
+     sign_in( user )
+
+     delete "/api/mendil/users/#{user.id}", params: { id: user.id }
+     expect(User.count).to eq( count - 1 )
+    end
+  end
 end

@@ -32,7 +32,10 @@ module Api
       end
 
       def destroy
+        @user = User.find(params[:id])
         @user.destroy
+        
+        flash[:notice] = "User Removed"
       end
 
 
