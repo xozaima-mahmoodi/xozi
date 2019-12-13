@@ -9,4 +9,6 @@ Rails.application.routes.draw do
       resources :team
     end
   end
+
+  get '(*/path)', to: 'application#app'
 end
