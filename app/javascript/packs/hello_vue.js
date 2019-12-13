@@ -6,11 +6,25 @@
 // All it does is render <div>Hello Vue</div> at the bottom of the page.
 
 import Vue from 'vue'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+// import ElementUI from 'element-ui'
+import VueRouter from 'vue-router'
+// import 'element-ui/lib/theme-chalk/index.css'
 import App from '../app.vue'
+import router from '../routers/routers'
+
+Vue.use(VueAxios, axios)
+// Vue.use(ElementUI)
+Vue.use(VueRouter)
+// import Vuex from 'vuex'
+// Vue.use(Vuex)
+// import store from './store.js'
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
-    render: h => h(App)
+    render: h => h(App),
+    router,
   }).$mount()
   document.body.appendChild(app.$el)
 
