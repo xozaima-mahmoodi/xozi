@@ -5,6 +5,7 @@
     "@rails/webpacker": "^4.0.7",
     "axios": "^0.19.0",
     "axois": "^0.0.1-security",
+    "element-ui": "^2.13.0",
     "vue": "^2.6.10",
     "vue-axios": "^2.1.5",
     "vue-loader": "^15.7.2",
