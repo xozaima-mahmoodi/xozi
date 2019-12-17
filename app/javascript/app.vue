@@ -8,6 +8,7 @@
 
 <script>
 import Nav from './components/navmenu.vue'
+
 export default {
   data: function () {
     return {
