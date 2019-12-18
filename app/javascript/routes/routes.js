@@ -1,5 +1,6 @@
 import navmenu from '../components/navmenu.vue'
 import showimg from '../components/showimg.vue'
+import footer from '../components/footer.vue'
 
 const routes = [
   {
@@ -10,6 +11,10 @@ const routes = [
     path: '/',
     name: 'showimg',
     component: showimg
+  },{
+    path: '/',
+    name: 'footer',
+    component: footer
   }
 ]
 

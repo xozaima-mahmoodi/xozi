@@ -2,12 +2,15 @@
   <div id="app">
     <Nav/>
      <router-view />
+     <Footer/>
     <p>{{ message }}</p>
   </div>
 </template>
 
 <script>
 import Nav from './components/navmenu.vue'
+import Footer from "./components/footer.vue"
+
 
 export default {
   data: function () {
@@ -18,6 +21,7 @@ export default {
 
   components: {
   Nav,
+  Footer
   }
 }
 </script>
