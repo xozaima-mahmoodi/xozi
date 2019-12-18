@@ -10,16 +10,6 @@
   </div>
 </template>
 
-<script>
-  export default {
-    data() {
-      return {
-        
-        }
-      }
-    }
-</script>
-
 <style>
   .el-carousel__item h3 {
     color: #475669;
