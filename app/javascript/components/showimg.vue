@@ -6,10 +6,15 @@
         <h3 class="medium">{{ item }}</h3>
       </el-carousel-item>
     </el-carousel>
-    
+    <Test/>
   </div>
 </template>
-
+<script>
+import Test from './lastteams'
+export default {
+  components: {Test}
+}
+</script>
 <style>
   .el-carousel__item h3 {
     color: #475669;
