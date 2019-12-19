@@ -1,20 +1,16 @@
-import navmenu from '../components/navmenu.vue'
-import showimg from '../components/showimg.vue'
-import footer from '../components/footer.vue'
+import Showimg from '../components/showimg.vue'
+import Lastteams from '../components/lastteams.vue'
+
 
 const routes = [
   {
-    path: '/navmenu',
-    name: 'navmenu',
-    component: navmenu
-  },{
     path: '/',
     name: 'showimg',
-    component: showimg
+    component: Showimg
   },{
     path: '/',
-    name: 'footer',
-    component: footer
+    name: 'lastteams',
+    component: Lastteams
   }
 ]
 
