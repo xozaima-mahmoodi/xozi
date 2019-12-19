@@ -12,7 +12,7 @@ import ElementUI from 'element-ui'
 import VueRouter from 'vue-router'
 import 'element-ui/lib/theme-chalk/index.css'
 import App from '../app.vue'
-import router from '../routers/routers'
+import router from '../routers/router'
 
 Vue.use(VueAxios, axios)
 Vue.use(ElementUI)
