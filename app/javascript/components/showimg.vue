@@ -6,13 +6,13 @@
         <h3 class="medium">{{ item }}</h3>
       </el-carousel-item>
     </el-carousel>
-    <Test/>
+    <Ls/>
   </div>
 </template>
 <script>
-import Test from './lastteams'
+import Ls from './lastteams'
 export default {
-  components: {Test}
+  components: {Ls}
 }
 </script>
 <style>
