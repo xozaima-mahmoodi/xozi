@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {sessions: 'sessions'}
-
-  namespace :api do
+  
+  namespace :api, defaults: { format: 'json' } do
     namespace :mendil do
       resources :users
       resources :news
@@ -9,6 +8,7 @@ Rails.application.routes.draw do
       resources :team
     end
   end
-
-  get '(*/path)', to: 'application#app'
+  
+  devise_for :users, controllers: {sessions: 'sessions'}, defaults: { format: 'json' }
+  get '(*path)', to: 'application#app'
 end
