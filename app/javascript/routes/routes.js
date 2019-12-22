@@ -1,7 +1,7 @@
 import Showimg from '../components/showimg.vue'
 import Lastteams from '../components/lastteams.vue'
 import Lastnews from '../components/lastnews.vue'
-import football from '../components/teams/football.vue'
+import Football from '../components/teams/football.vue'
 
 const routes = [
   {
@@ -17,9 +17,9 @@ const routes = [
     name: 'lastnews',
     component: Lastnews
   },{
-    path: '/teams/football',
+    path: '/components/teams/football.vue',
     name: 'football',
-    component: football
+    component: Football
   }
 ]
 
