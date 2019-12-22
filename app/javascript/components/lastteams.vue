@@ -55,9 +55,21 @@
       </el-col>
     </el-row>
     <hr>
-
+    <Ln/>
   </div>
 </template>
+
+<script>
+import Ln from './lastnews'
+export default {
+  components: {Ln},
+  data() {
+    return {
+      currentDate: new Date()
+    };
+  }
+}
+</script>
 
 <style>
   .time {
@@ -90,15 +102,5 @@
       clear: both
   }
 </style>
-
-<script>
-export default {
-  data() {
-    return {
-      currentDate: new Date()
-    };
-  }
-}
-</script>
 
 
