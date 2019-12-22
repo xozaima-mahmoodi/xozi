@@ -3,7 +3,6 @@
     <Nav/>
      <router-view />
      <Footer/>
-    <p>{{ message }}</p>
   </div>
 </template>
 
@@ -15,7 +14,7 @@ import Footer from './components/footer.vue'
 export default {
   data: function () {
     return {
-      message: "Hello Xozi!"
+     
     }
   },
 
