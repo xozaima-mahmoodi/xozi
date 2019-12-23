@@ -11,7 +11,18 @@
       active-text-color="#ffffff"
     >
       <el-menu-item index="1">TIME</el-menu-item>
-      <el-menu-item index="2">LOGIN</el-menu-item>
+      <el-menu-item index="2">
+        <el-popover
+        placement="right"
+        width="900"
+        trigger="click">
+        <el-input placeholder="Please input" v-model="input">username</el-input>
+        <el-input placeholder="Please input" v-model="pass">password</el-input>
+                <el-button @click="submit">login</el-button>
+        <el-button slot="reference">LOGIN</el-button>
+        </el-popover>
+      </el-menu-item>
+      
     </el-menu>
 
     <el-menu
@@ -43,6 +54,9 @@
 export default {
   data() {
     return {
+      input: '',
+            pass: '',
+
       activities: [
         {
           activeIndex: "1",
@@ -54,6 +68,9 @@ export default {
   methods: {
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
+    },
+    submit () {
+      
     }
   }
 };
